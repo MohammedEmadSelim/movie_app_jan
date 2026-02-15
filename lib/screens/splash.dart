@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import 'home_screen.dart';
+import '/widgets/splash_logo_card.dart';
  class Splash extends StatefulWidget {
    const Splash({super.key});
  
@@ -30,7 +31,7 @@ import 'home_screen.dart';
     Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (_) => const HomeScreen()),
+        MaterialPageRoute(builder: (_) =>  HomeScreen()),
       );
     });
     }
@@ -41,16 +42,7 @@ import 'home_screen.dart';
 
    }
    Widget build(BuildContext context) {
-     return  Scaffold(
-       backgroundColor: Colors.black,
-       body: Center(
-         child: FadeTransition(opacity: _fadeAnimation,
-           child: ScaleTransition(scale: _scaleAnimation,
-             child: Image.asset('assets/images/logo.png',
-
-         ),
-       ),
-     )));
+     return SplashLogoCard(fadeAnimation: _fadeAnimation ,scaleAnimation:  _scaleAnimation );
    }
  }
  
