@@ -15,7 +15,7 @@ import '/widgets/splash_logo_card.dart';
 
    late AnimationController _controller;
    late Animation <double> _fadeAnimation;
-    late Animation <double> _scaleAnimation;
+   late Animation <double> _scaleAnimation;
 
    @override
    void initState() {

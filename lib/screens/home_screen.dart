@@ -23,6 +23,7 @@ class HomeScreen extends StatelessWidget {
               SearchBar(),
               SizedBox(height: 20,),
 
+
             ]
           ),
         )
