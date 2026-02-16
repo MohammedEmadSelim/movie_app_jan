@@ -1,10 +1,13 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+   const HomeScreen({super.key});
+
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     return SafeArea(
       child:  Scaffold(
         backgroundColor: Colors.grey.shade900,
@@ -22,6 +25,16 @@ class HomeScreen extends StatelessWidget {
               SizedBox(height: 20,),
               SearchBar(),
               SizedBox(height: 20,),
+              CarouselSlider(
+                options: CarouselOptions(
+                  height: screenHeight * .3,
+                  autoPlay: true,
+                  enlargeCenterPage: true,
+                  autoPlayInterval:  Duration( seconds: 3),
+
+                ), items: [],
+
+              )
 
 
             ]
