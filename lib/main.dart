@@ -3,14 +3,17 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/constant/constantFiles/dio_helpers.dart';
+import 'package:movie_app/core/screens/search_screen.dart';
 import 'package:movie_app/core/screens/splash_screen.dart';
-import 'package:movie_app/core/screens/home_screen.dart';
+import 'package:movie_app/core/screens/home_view.dart';
 import 'package:movie_app/core/screens/timer_screen.dart';
+import 'package:movie_app/core/screens/watch_list_screen.dart';
 import 'package:movie_app/core/theme/app_theme.dart';
 import 'package:movie_app/models/cubit/search_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  //! call DioHelper when the the program start running
   await DioHelper.init();
 
   runApp(const MyApp());
@@ -19,21 +22,37 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
-      theme: ThemeData(scaffoldBackgroundColor: AppColors.appTheme),
+      theme: ThemeData(
+        scaffoldBackgroundColor: AppColors.appTheme,
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          backgroundColor: AppColors.appTheme,
+          type: BottomNavigationBarType.fixed,
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.grey,
+          selectedLabelStyle: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.w600,
+          ),
+          unselectedLabelStyle: TextStyle(
+            color: Colors.white38,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ),
       home: BlocProvider(
         create: (context) => SearchCubit(),
-        child: TimerScreen(),
+        child: SplashView(),
       ),
       routes: {
         "HomeScreen": (context) => HomeScreen(),
-
+        "WatchListScreen": (context) => WatchListScreen(),
         "SplashScreen": (context) => SplashScreen(),
+        "SearchScreen": (context) => SearchScreen(),
       },
     );
   }

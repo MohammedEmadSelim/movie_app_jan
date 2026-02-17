@@ -8,22 +8,14 @@ class SearchFormField extends StatelessWidget {
     required this.hint,
     required this.suffixIcon,
     required this.onchanged,
-    required this.readOnly,
   });
   final String hint;
   final Icon suffixIcon;
-  final bool readOnly;
 
   final ValueChanged<String> onchanged;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      onTap: () {
-        Navigator.of(
-          context,
-        ).push(MaterialPageRoute(builder: (context) => SearchScreen()));
-      },
-      readOnly: readOnly,
       style: TextStyle(color: Colors.white),
       cursorColor: Colors.white,
       keyboardType: TextInputType.text,

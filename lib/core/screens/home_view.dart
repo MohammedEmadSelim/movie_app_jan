@@ -1,3 +1,6 @@
+import 'dart:ui';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:gap/gap.dart';
@@ -5,6 +8,7 @@ import 'package:movie_app/core/constant/constantFiles/api_query.dart';
 import 'package:movie_app/core/constant/constantFiles/dio_helpers.dart';
 import 'package:movie_app/core/constant/constantFiles/fields.dart';
 import 'package:movie_app/core/constant/constantFiles/strings.dart';
+import 'package:movie_app/core/screens/widgets/card_drawer_widget.dart';
 import 'package:movie_app/core/screens/widgets/carousel_widget.dart';
 import 'package:movie_app/core/screens/widgets/nowplayng_tabbar.dart';
 import 'package:movie_app/core/screens/widgets/popular_tabbar.dart';
@@ -24,6 +28,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final String appBarTitle = "What do you want to watch?";
   List resultResponse = [];
+  int currentIndex = 0;
 
   @override
   void initState() {
@@ -53,12 +58,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return GestureDetector(
       onTap: () {
         FocusManager.instance.primaryFocus?.unfocus();
       },
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: AppColors.appTheme,
           iconTheme: IconThemeData(color: Colors.white),
           title: Text(
             appBarTitle,
@@ -68,7 +76,75 @@ class _HomeScreenState extends State<HomeScreen> {
               fontFamily: "Lobster",
             ),
           ),
-          backgroundColor: AppColors.appTheme,
+        ),
+
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: currentIndex,
+          onTap: (value) {
+            setState(() {});
+            currentIndex = value;
+            switch (currentIndex) {
+              case 0:
+                Navigator.pushNamed(context, "HomeScreen");
+                break;
+              case 1:
+                Navigator.pushNamed(context, "SearchScreen");
+                break;
+              case 2:
+                Navigator.pushNamed(context, "WatchListScreen");
+                break;
+            }
+          },
+
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(CupertinoIcons.home),
+              label: "Home",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(CupertinoIcons.search),
+              label: "Search",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(CupertinoIcons.bookmark),
+              label: "Watch List",
+            ),
+          ],
+        ),
+
+        //! make the drawer from right not from begin
+        endDrawer: Drawer(
+          backgroundColor: AppColors.appTheme.withOpacity(0.97),
+          child: ListView(
+            children: [
+              Container(
+                height: height * 0.2,
+                width: double.infinity,
+                child: Center(
+                  child: CircleAvatar(
+                    radius: 60,
+                    backgroundImage: AssetImage("assets/logo.png"),
+                  ),
+                ),
+              ),
+              Gap(10),
+              CardDrawerWidget(
+                cardIcon: Icon(CupertinoIcons.home, color: Colors.white),
+                cardText: "Home Page",
+              ),
+              CardDrawerWidget(
+                cardIcon: Icon(CupertinoIcons.settings, color: Colors.white),
+                cardText: "Settings",
+              ),
+              CardDrawerWidget(
+                cardIcon: Icon(
+                  CupertinoIcons.profile_circled,
+                  color: Colors.white,
+                ),
+                cardText: "Profile ",
+              ),
+            ],
+          ),
         ),
         body: SafeArea(
           child: Padding(
@@ -76,12 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               children: [
                 const Gap(15),
-                SearchFormField(
-                  readOnly: true,
-                  hint: "Search",
-                  suffixIcon: const Icon(Icons.search_rounded, size: 32),
-                  onchanged: (value) => search(value),
-                ),
+
                 const Gap(12),
                 if (resultResponse.isNotEmpty)
                   CarouselWidget(resultResponse: resultResponse),

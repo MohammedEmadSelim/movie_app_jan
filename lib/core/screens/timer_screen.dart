@@ -5,16 +5,16 @@ import 'package:gap/gap.dart';
 import 'package:movie_app/core/screens/splash_screen.dart';
 import 'package:movie_app/models/cubit/search_cubit.dart';
 
-class TimerScreen extends StatefulWidget {
-  const TimerScreen({super.key});
+class SplashView extends StatefulWidget {
+  const SplashView({super.key});
 
   @override
-  State<TimerScreen> createState() => _TimerScreenState();
+  State<SplashView> createState() => _SplashViewState();
 }
 
-class _TimerScreenState extends State<TimerScreen> {
+class _SplashViewState extends State<SplashView> {
   void initState() {
-    Future.delayed(Duration(seconds: 5), () {
+    Future.delayed(Duration(seconds: 2), () {
       Navigator.of(context).pushReplacement(
         //! this widget to make animation for transmission from page to page
         PageRouteBuilder(

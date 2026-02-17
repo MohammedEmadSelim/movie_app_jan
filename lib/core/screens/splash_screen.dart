@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/core/screens/home_screen.dart';
+import 'package:movie_app/core/screens/home_view.dart';
 import 'package:movie_app/core/theme/app_theme.dart';
 //! package from flutter to make animation on text
 import 'package:animate_do/animate_do.dart';
