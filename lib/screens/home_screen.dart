@@ -1,13 +1,26 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
    const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<HomeCubit>().getPopularMovies();
+  }
 
 
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
+
+
     return SafeArea(
       child:  Scaffold(
         backgroundColor: Colors.grey.shade900,
