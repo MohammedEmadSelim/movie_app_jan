@@ -22,8 +22,10 @@ class Service {
     );
   }
   Future<List<MovieModel>> getPopularMovies() async {
-    final res = await dio.get(ApiConstants.popular);
-
+    final res = await dio.get(
+      ApiConstants.popular,
+      queryParameters: {'api_key': ApiKeys.token},
+    );
     List results = res.data['results'];
 
     return results.map((e) => MovieModel.fromJson(e)).toList();

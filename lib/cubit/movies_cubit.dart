@@ -13,14 +13,11 @@ class MoviesCubit extends Cubit<MoviesState> {
   List<MovieModel> popularMovies = [];
 
   Future<void> getPopular() async {
-
     emit(MoviesLoading());
-
     try {
       popularMovies = await api.getPopularMovies();
-      emit(MoviesSuccess(moviesList: []));
+      emit(MoviesSuccess(moviesList: popularMovies));
     } catch (e) {
       emit(MoviesError());
     }
-  }
-}
+  }}
