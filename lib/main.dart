@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:movies/screens/splash.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../service/service.dart';
+
+
+import 'cubit/movies_cubit.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(BlocProvider(
+    create: (context) => MoviesCubit(Service()),));
 }
 
 class MyApp extends StatelessWidget {

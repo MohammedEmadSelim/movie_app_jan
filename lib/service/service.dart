@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import '../models/movie_model.dart';
 import 'ApiKeys.dart';
 import 'api_constants.dart';
 
@@ -20,8 +21,12 @@ class Service {
       )
     );
   }
-  Future<Response> getPopularMovies() async{
-    return await dio.get(ApiConstants.popular);
+  Future<List<MovieModel>> getPopularMovies() async {
+    final res = await dio.get(ApiConstants.popular);
 
+    List results = res.data['results'];
+
+    return results.map((e) => MovieModel.fromJson(e)).toList();
   }
+
 }

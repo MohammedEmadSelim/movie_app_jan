@@ -1,6 +1,11 @@
 part of 'movies_cubit.dart';
 
-@immutable
-sealed class MoviesState {}
+abstract class MoviesState {}
 
-final class MoviesInitial extends MoviesState {}
+class MoviesInitial extends MoviesState {}
+
+class MoviesLoading extends MoviesState {}
+
+class MoviesSuccess extends MoviesState {}
+
+class MoviesError extends MoviesState {}

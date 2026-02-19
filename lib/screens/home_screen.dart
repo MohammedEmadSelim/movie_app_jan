@@ -1,5 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../cubit/movies_cubit.dart';
+import 'package:movies/models/movie_model.dart';
+
+import '../service/service.dart';
 class HomeScreen extends StatefulWidget {
    const HomeScreen({super.key});
 
@@ -11,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    context.read<HomeCubit>().getPopularMovies();
+    context.read<MoviesCubit>().getPopular();
   }
 
 
