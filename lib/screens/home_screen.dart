@@ -15,10 +15,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
-  void initState() {
-    super.initState();
-    context.read<MoviesCubit>().getPopular();
-  }
+
 
 
   @override
@@ -44,15 +41,19 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(height: 20,),
               SearchBar(),
               SizedBox(height: 20,),
-              CarouselSlider(
-                options: CarouselOptions(
-                  height: screenHeight * .3,
-                  autoPlay: true,
-                  enlargeCenterPage: true,
-                  autoPlayInterval:  Duration( seconds: 3),
+          BlocBuilder<MoviesCubit, MoviesState>(
+                builder: (context , state) {
+                  return CarouselSlider(
+                    options: CarouselOptions(
+                      height: screenHeight * .3,
+                      autoPlay: true,
+                      enlargeCenterPage: true,
+                      autoPlayInterval:  Duration( seconds: 3),
 
-                ), items: [],
+                    ), items: [],
 
+                  );
+                }
               )
 
 
