@@ -8,7 +8,9 @@ import 'cubit/movies_cubit.dart';
 
 void main() {
   runApp(BlocProvider(
-    create: (context) => MoviesCubit(Service()),));
+    create: (context) => MoviesCubit(Service())..getPopular(),
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {

@@ -18,7 +18,7 @@ class MoviesCubit extends Cubit<MoviesState> {
 
     try {
       popularMovies = await api.getPopularMovies();
-      emit(MoviesSuccess());
+      emit(MoviesSuccess(moviesList: []));
     } catch (e) {
       emit(MoviesError());
     }

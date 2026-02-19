@@ -12,9 +12,10 @@ MovieModel({
     if (json != null){
       return MovieModel(
           id: json['id'],
-          title: json['title'],
+          title: json['title'] ?? '',
           image: json['poster_path'] ?? ''
       );
     }
+
   }
 }

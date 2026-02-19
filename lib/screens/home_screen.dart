@@ -1,11 +1,10 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:carousel_slider/carousel_slider.dart' as cs;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:movies/service/api_constants.dart';
 import '../cubit/movies_cubit.dart';
 import 'package:movies/models/movie_model.dart';
 
-import '../service/service.dart';
 class HomeScreen extends StatefulWidget {
    const HomeScreen({super.key});
 
@@ -41,19 +40,33 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(height: 20,),
               SearchBar(),
               SizedBox(height: 20,),
-          BlocBuilder<MoviesCubit, MoviesState>(
-                builder: (context , state) {
-                  return CarouselSlider(
-                    options: CarouselOptions(
-                      height: screenHeight * .3,
-                      autoPlay: true,
-                      enlargeCenterPage: true,
-                      autoPlayInterval:  Duration( seconds: 3),
-
-                    ), items: [],
-
-                  );
-                }
+              BlocBuilder<MoviesCubit, MoviesState>(
+                builder: (context, state) {
+                  if (state is MoviesLoading) {
+                    return CircularProgressIndicator();
+                  }
+                  if (state is MoviesSuccess) {
+                    return cs.CarouselSlider(
+                      items: state.moviesList.map((movie) {
+                        return ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Image.network(
+                            "${ApiConstants.imageBaseUrl}${movie.image}",
+                            fit: BoxFit.cover,
+                            width: double.infinity,
+                          ),
+                        );
+                      }).toList(),
+                      options: cs.CarouselOptions(
+                        height: screenHeight * 0.3,
+                        autoPlay: true,
+                        enlargeCenterPage: true,
+                        autoPlayInterval: const Duration(seconds: 3),
+                      ),
+                    );
+                  }
+                  return const Text("Error", style: TextStyle(color: Colors.white));
+                },
               )
 
 

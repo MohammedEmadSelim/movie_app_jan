@@ -6,6 +6,12 @@ class MoviesInitial extends MoviesState {}
 
 class MoviesLoading extends MoviesState {}
 
-class MoviesSuccess extends MoviesState {}
+class MoviesSuccess extends MoviesState {
+  final List<MovieModel> moviesList;
+
+  MoviesSuccess({required this.moviesList});
+}
 
 class MoviesError extends MoviesState {}
+
+
