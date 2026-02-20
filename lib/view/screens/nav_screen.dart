@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:new_api_explain/view/screens/fav_Screen.dart';
 import 'package:new_api_explain/view/screens/home_screen.dart';
 import 'package:new_api_explain/view/screens/search_screen.dart';
 import 'package:new_api_explain/view_model/home_carousel_movies_cubi/home_carousel_movies_cubit.dart';
@@ -23,13 +24,13 @@ class _NavScreenState extends State<NavScreen> {
       create: (context) => SearchCubit(),
       child: SearchScreen(),
     ),
-    Container()
+    FavScreen()
 
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+      backgroundColor: Color(0xff242A32),
       body: screens[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         onTap: (value) {

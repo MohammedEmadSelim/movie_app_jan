@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:new_api_explain/models/movie_model.dart';
+import 'package:new_api_explain/utlies/hive_boxes.dart';
 
-class MovieDetailsScreen extends StatelessWidget {
+class MovieDetailsScreen extends StatefulWidget {
   const MovieDetailsScreen({super.key, required this.movie});
 
   final MovieModel movie;
 
+  @override
+  State<MovieDetailsScreen> createState() => _MovieDetailsScreenState();
+}
+
+class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
@@ -25,7 +31,24 @@ class MovieDetailsScreen extends StatelessWidget {
           ),
         ),
         actions: [
-          Icon(Icons.bookmark, size: 32, color: Colors.white),
+          GestureDetector(
+            onTap: (){
+              moviesBox.containsKey(widget.movie.id)
+                  ? moviesBox.delete(widget.movie.id)
+                  : moviesBox.put(widget.movie.id,widget.movie);
+
+              setState(() {
+
+              });
+            },
+            child: Icon(
+              moviesBox.containsKey(widget.movie.id)
+                  ? Icons.bookmark
+                  : Icons.bookmark_border,
+              size: 32,
+              color: Colors.white,
+            ),
+          ),
           SizedBox(width: 10),
         ],
       ),
@@ -38,7 +61,7 @@ class MovieDetailsScreen extends StatelessWidget {
               child: Stack(
                 children: [
                   Image.network(
-                    "https://image.tmdb.org/t/p/w500/${movie.backdropPath}",
+                    "https://image.tmdb.org/t/p/w500/${widget.movie.backdropPath}",
                   ),
 
                   Positioned(
@@ -50,7 +73,7 @@ class MovieDetailsScreen extends StatelessWidget {
                           ClipRRect(
                             borderRadius: BorderRadius.circular(16),
                             child: Image.network(
-                              "https://image.tmdb.org/t/p/w500/${movie.posterPath}",
+                              "https://image.tmdb.org/t/p/w500/${widget.movie.posterPath}",
                               height: screenHeight * 0.25,
                               width: screenWidth * 0.30,
                               fit: BoxFit.cover,
@@ -61,7 +84,7 @@ class MovieDetailsScreen extends StatelessWidget {
                             children: [
                               SizedBox(height: screenHeight * 0.125),
                               Text(
-                                movie.title,
+                                widget.movie.title,
                                 style: TextStyle(
                                   fontWeight: FontWeight.w700,
                                   fontSize: 18,
@@ -77,14 +100,14 @@ class MovieDetailsScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 24,),
+            SizedBox(height: 24),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(Icons.calendar_today_outlined, color: Color(0xff92929D)),
                 SizedBox(width: 10),
                 Text(
-                  movie.releaseDate!.year.toString(),
+                  widget.movie.releaseDate!.year.toString(),
                   style: TextStyle(color: Color(0xff92929D)),
                 ),
                 SizedBox(width: 5),
@@ -98,7 +121,7 @@ class MovieDetailsScreen extends StatelessWidget {
                 Icon(Icons.timelapse, color: Color(0xff92929D)),
                 SizedBox(width: 10),
                 Text(
-                  movie.voteCount.toString(),
+                  widget.movie.voteCount.toString(),
                   style: TextStyle(color: Color(0xff92929D)),
                 ),
                 SizedBox(width: 5),
@@ -110,12 +133,8 @@ class MovieDetailsScreen extends StatelessWidget {
                 //=======
                 Icon(Icons.local_attraction_outlined, color: Color(0xff92929D)),
                 SizedBox(width: 10),
-                Text(
-                  "action",
-                  style: TextStyle(color: Color(0xff92929D)),
-                ),
+                Text("action", style: TextStyle(color: Color(0xff92929D))),
                 SizedBox(width: 5),
-
               ],
             ),
 
@@ -131,27 +150,28 @@ class MovieDetailsScreen extends StatelessWidget {
                   Tab(text: "About Movie"),
                   Tab(text: "Reviews"),
                   Tab(text: "Cast"),
-
                 ],
               ),
             ),
             Expanded(
-              child: TabBarView(children: [
-                Container(
-
-                  padding: EdgeInsets.all(24),
-                  child: Text(movie.overview,
-                  style: TextStyle(fontSize: 14,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.white),),
-
-                ),
-                Container(),
-                Container(),
-              ]),
-            )
-
-
+              child: TabBarView(
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(24),
+                    child: Text(
+                      widget.movie.overview,
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  Container(),
+                  Container(),
+                ],
+              ),
+            ),
           ],
         ),
       ),

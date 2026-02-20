@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:new_api_explain/models/movie_model.dart';
+import 'package:new_api_explain/utlies/hive_boxes.dart';
 import 'package:new_api_explain/view/screens/nav_screen.dart';
 
 
-void main() {
+void main()async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Hive.initFlutter();
+  Hive.registerAdapter(MovieModelAdapter());
+  // open the box and pass the value to global Box
+  moviesBox = await Hive.openBox<MovieModel>("fav_movies");
   runApp(const MyApp());
 }
 
