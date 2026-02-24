@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/theme/app_theme.dart';
 
@@ -7,26 +6,26 @@ class WatchListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.white),
+        centerTitle: true,
         backgroundColor: AppColors.appTheme,
-        title: Text("Watch List", style: TextStyle(color: Colors.white)),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(
-            "Search Screen ",
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 50,
-            ),
+        title: Text(
+          "Watch List",
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            shadows: [
+              Shadow(color: AppColors.navCollorTheme, offset: Offset(2, 2)),
+            ],
           ),
-        ],
+        ),
+
+        iconTheme: IconThemeData(color: Colors.white),
       ),
+      body: Column(),
     );
   }
 }

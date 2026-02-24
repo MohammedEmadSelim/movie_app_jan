@@ -1,6 +1,5 @@
 class ApiQuery {
-
-    //! query parametrs for dicover model
+  //! query parametrs for dicover model
   static Map<String, dynamic> discoverQuery = {
     "include_adult": false,
     "language": "en-US",
@@ -15,18 +14,19 @@ class ApiQuery {
   };
 
   //! query parametrs for popular model
-  static Map<String, dynamic> popularQuery = {
-    "language": "en-Us",
-    "page": 1,
-  };
+  static Map<String, dynamic> popularQuery = {"language": "en-Us", "page": 1};
   //! query parametrs for popular model
-  static Map<String, dynamic> upComingQuery = {
-    "language": "en-Us",
-    "page": 1,
-  };
+  static Map<String, dynamic> upComingQuery = {"language": "en-Us", "page": 1};
   //! query parametrs for popular model
-  static Map<String, dynamic> topRatedQuery = {
-    "language": "en-Us",
-    "page": 1,
-  };
+  static Map<String, dynamic> topRatedQuery = {"language": "en-Us", "page": 1};
+
+  //! query parameters for search movie model
+  static Map<String, dynamic> searchMovieQuery(String inputText) {
+    return {
+      "include_adult": "false",
+      "language": "en-US",
+      "query": inputText,
+      "page": 1,
+    };
+  }
 }

@@ -1,9 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 class CardDrawerWidget extends StatelessWidget {
-  CardDrawerWidget({super.key, required this.cardText, required this.cardIcon});
+  const CardDrawerWidget({super.key, required this.cardText, required this.cardIcon});
   final String cardText;
   final Icon cardIcon;
 

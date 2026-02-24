@@ -14,7 +14,7 @@ import 'package:movie_app/models/cubit/search_cubit.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   //! call DioHelper when the the program start running
-  await DioHelper.init();
+  DioHelper.init();
 
   runApp(const MyApp());
 }
@@ -32,10 +32,10 @@ class MyApp extends StatelessWidget {
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: AppColors.appTheme,
           type: BottomNavigationBarType.fixed,
-          selectedItemColor: Colors.white,
+          selectedItemColor: AppColors.navCollorTheme,
           unselectedItemColor: Colors.grey,
           selectedLabelStyle: TextStyle(
-            color: Colors.white,
+            color: AppColors.navCollorTheme,
             fontWeight: FontWeight.w600,
           ),
           unselectedLabelStyle: TextStyle(

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/core/screens/search_screen.dart';
 import 'package:movie_app/core/theme/app_theme.dart';
 
 class SearchFormField extends StatelessWidget {
@@ -48,6 +47,8 @@ class SearchFormField extends StatelessWidget {
           borderSide: BorderSide(color: Colors.red),
         ),
       ),
+      //! connect the function with the function on search screen
+      onChanged: onchanged,
     );
   }
 }

@@ -1,12 +1,9 @@
-import 'dart:ui';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:gap/gap.dart';
 import 'package:movie_app/core/constant/constantFiles/api_query.dart';
 import 'package:movie_app/core/constant/constantFiles/dio_helpers.dart';
-import 'package:movie_app/core/constant/constantFiles/fields.dart';
 import 'package:movie_app/core/constant/constantFiles/strings.dart';
 import 'package:movie_app/core/screens/widgets/card_drawer_widget.dart';
 import 'package:movie_app/core/screens/widgets/carousel_widget.dart';
@@ -35,6 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     getPopularMovies();
   }
+  //! Fetch The Data From API
 
   Future<void> getPopularMovies() async {
     try {
@@ -61,11 +59,13 @@ class _HomeScreenState extends State<HomeScreen> {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return GestureDetector(
+      //! to click om any position on the screen to cancel the type focus.
       onTap: () {
         FocusManager.instance.primaryFocus?.unfocus();
       },
       child: Scaffold(
         appBar: AppBar(
+          centerTitle: false,
           backgroundColor: AppColors.appTheme,
           iconTheme: IconThemeData(color: Colors.white),
           title: Text(
@@ -73,6 +73,11 @@ class _HomeScreenState extends State<HomeScreen> {
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.w600,
+              fontSize: 22,
+              shadows: [
+                Shadow(color: AppColors.navCollorTheme, offset: Offset(2, 2)),
+              ],
+              //! font type
               fontFamily: "Lobster",
             ),
           ),
@@ -83,6 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
           onTap: (value) {
             setState(() {});
             currentIndex = value;
+            //! switched between the screens by Bottom Navigation Bar
             switch (currentIndex) {
               case 0:
                 Navigator.pushNamed(context, "HomeScreen");
@@ -117,7 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: AppColors.appTheme.withOpacity(0.97),
           child: ListView(
             children: [
-              Container(
+              SizedBox(
                 height: height * 0.2,
                 width: double.infinity,
                 child: Center(
@@ -154,6 +160,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 const Gap(15),
 
                 const Gap(12),
+
                 if (resultResponse.isNotEmpty)
                   CarouselWidget(resultResponse: resultResponse),
                 const Gap(20),

@@ -19,7 +19,7 @@ class _HomeScreenState extends State<SplashScreen> {
   final String buttonText = "Get Started";
 
   void onPressed() {
-    Navigator.of(context).push(
+    Navigator.of(context).pushReplacement(
       MaterialPageRoute(
         builder: (context) => BlocProvider(
           create: (context) => SearchCubit(),
@@ -56,6 +56,13 @@ class _HomeScreenState extends State<SplashScreen> {
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: 50,
+                      shadows: [
+                        Shadow(
+                          color: AppColors.navCollorTheme,
+                          offset: Offset(2, 2),
+                        ),
+                      ],
+
                       fontFamily: "Lobster",
                     ),
                   ),
@@ -83,6 +90,13 @@ class _HomeScreenState extends State<SplashScreen> {
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 24,
+
+                          shadows: [
+                            Shadow(
+                              color: AppColors.navCollorTheme,
+                              offset: Offset(2, 2),
+                            ),
+                          ],
                           fontFamily: "Lobster",
                         ),
                       ),

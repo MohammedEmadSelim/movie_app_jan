@@ -4,7 +4,7 @@ import 'package:movie_app/core/constant/constantFiles/dio_helpers.dart';
 import 'package:movie_app/core/constant/constantFiles/strings.dart';
 
 class PopularTabbar extends StatefulWidget {
-  PopularTabbar({super.key});
+  const PopularTabbar({super.key});
 
   @override
   State<PopularTabbar> createState() => _PopularTabbarState();

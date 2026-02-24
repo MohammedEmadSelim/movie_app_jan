@@ -39,4 +39,10 @@ class EndpointsService {
       query: ApiQuery.upComingQuery,
     );
   }
+  static Future<Response> getSearchMovie({int page = 1}) {
+    return DioHelper.getData(
+      endpoint: Strings.SearchMovieEndPoint,
+      query: ApiQuery.upComingQuery,
+    );
+  }
 }

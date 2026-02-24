@@ -4,7 +4,7 @@ import 'package:movie_app/core/constant/constantFiles/dio_helpers.dart';
 import 'package:movie_app/core/constant/constantFiles/strings.dart';
 
 class TopratedTabbar extends StatefulWidget {
-  TopratedTabbar({super.key});
+  const TopratedTabbar({super.key});
 
   @override
   State<TopratedTabbar> createState() => _TopratedTabbarState();

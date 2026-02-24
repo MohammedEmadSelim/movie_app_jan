@@ -5,7 +5,7 @@ class DioHelper {
   static late Dio dio;
 
   //! Dio Function
-  static init() {
+  static void init() {
     dio = Dio(
       BaseOptions(
         baseUrl: Strings.baseUrl,

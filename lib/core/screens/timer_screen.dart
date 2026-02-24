@@ -13,6 +13,7 @@ class SplashView extends StatefulWidget {
 }
 
 class _SplashViewState extends State<SplashView> {
+  @override
   void initState() {
     Future.delayed(Duration(seconds: 2), () {
       Navigator.of(context).pushReplacement(

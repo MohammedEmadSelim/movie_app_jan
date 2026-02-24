@@ -30,6 +30,7 @@ flutter:
 
   assets:
     - assets/
+    - assets/lottie/
 
   fonts:
     - family: Lobster
