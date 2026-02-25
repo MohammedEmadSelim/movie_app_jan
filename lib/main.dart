@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/view/Screens/HomeScreen.dart';
+import 'package:movie_app/view/Screens/bottomNavScreen.dart';
 import 'package:movie_app/view_model/movieCast/cast_cubit.dart';
 import 'package:movie_app/view_model/movieDetails/details_cubit.dart';
 import 'package:movie_app/view_model/movieReviews/reviews_cubit.dart';
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
         child:
        MaterialApp(
       debugShowCheckedModeBanner: false,
-        title: 'Movies', home: HomeScreen()
+        title: 'Movies', home: BottomNavScreen(),
 
     ));
   }
