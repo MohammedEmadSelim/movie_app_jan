@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:meta/meta.dart';
 
 import '../../model/nowPlaying/nowPlaying_model.dart';
-//import 'package:movies/model/nowPlaying/nowplaying_model.dart';
+
 
 part 'now_playing_state.dart';
 

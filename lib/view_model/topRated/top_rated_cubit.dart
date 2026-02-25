@@ -5,7 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:meta/meta.dart';
 
 import '../../model/topRated/topRated_model.dart';
-//import 'package:movies/model/topRated/top_rated_model.dart';
+
 part 'top_rated_state.dart';
 
 class TopRatedCubit extends Cubit<TopRatedState> {

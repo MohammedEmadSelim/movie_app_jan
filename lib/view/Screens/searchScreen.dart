@@ -1,16 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-//import 'package:flutter_svg/flutter_svg.dart';
-//import 'package:movie_app/core/appcolor.dart';
-//import 'package:movies/core/app_color.dart';
-//import 'package:movies/view/screens/details_screen.dart';
-//import 'package:movies/view/widgets/Custom_app_bar.dart';
-//import 'package:movies/view/widgets/custom_search_details.dart';
-//import 'package:movies/view/widgets/custom_text_form.dart';
-//import 'package:movies/view/widgets/text_details.dart';
-//import 'package:movies/view_model/details/details_cubit.dart';
-//import 'package:movies/view_model/search_movie/search_movie_cubit.dart';
+
 
 import '../../core/appcolor.dart';
 import '../../view_model/movieDetails/details_cubit.dart';

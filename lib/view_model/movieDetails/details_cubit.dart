@@ -4,7 +4,7 @@ import 'package:meta/meta.dart';
 
 import '../../model/movieDetails/detailsModel.dart';
 
-//import '../../model/details/details_movie_model.dart';
+
 
 part 'details_state.dart';
 

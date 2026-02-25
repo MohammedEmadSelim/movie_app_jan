@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:meta/meta.dart';
 
 import '../../model/upComming/upCommingModel.dart';
-//import 'package:movies/model/upcoming/upcoming_model.dart';
+
 
 part 'up_comming_state.dart';
 

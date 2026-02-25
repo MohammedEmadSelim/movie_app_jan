@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/appcolor.dart';
-//import 'package:movies/core/app_color.dart';
+
 
 class TextDetails extends StatelessWidget {
   const TextDetails({super.key, required this.title});

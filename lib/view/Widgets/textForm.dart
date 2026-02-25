@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:movie_app/core/appcolor.dart';
-//import '../../core/app_color.dart';
+
 
 class CustomTextForm extends StatelessWidget {
   const CustomTextForm({super.key , required this.readOnly, this.onTap,this.controller,this.onSubmit});
-  //final String hintText;
   final bool readOnly;
   final VoidCallback? onTap;
   final TextEditingController? controller;
   final Function(String)? onSubmit;
-  //final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/appcolor.dart';
-//import 'package:movies/core/appcolor.dart';
+
 
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {

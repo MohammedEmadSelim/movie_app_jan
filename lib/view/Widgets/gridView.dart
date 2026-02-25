@@ -10,8 +10,6 @@ class CustomGridviewBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      //physics: NeverScrollableScrollPhysics(),
-      //shrinkWrap: true,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3,
             crossAxisSpacing: 15,

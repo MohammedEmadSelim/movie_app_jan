@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:meta/meta.dart';
 
 import '../../model/movieReviews/reviewsModel.dart';
-//import 'package:movies/model/reviews/reviews_model.dart';
+
 
 part 'reviews_state.dart';
 

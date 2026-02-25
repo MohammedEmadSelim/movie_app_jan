@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
 import '../../model/popular/popularModel.dart';
-//import 'package:movies/model/popular/popular_model.dart';
+
 
 part 'popular_state.dart';
 

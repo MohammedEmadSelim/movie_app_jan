@@ -3,19 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/core/appcolor.dart';
 import 'package:movie_app/view/Screens/searchScreen.dart';
 
-//import 'package:movies/core/app_color.dart';
-//import 'package:movies/view/screens/details_screen.dart';
-//import 'package:movies/view/screens/search_screen.dart';
-//import 'package:movies/view/widgets/custom_gridview.dart';
-//import 'package:movies/view/widgets/custom_text_form.dart';
-//import 'package:carousel_slider/carousel_slider.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
-//import 'package:movies/view/widgets/sized_gesture_clip.dart';
-//import 'package:movies/view/widgets/text_details.dart';
-//import 'package:movies/view_model/nowplaying/now_playing_cubit.dart';
-//import 'package:movies/view_model/popular/popular_cubit.dart';
-//import 'package:movies/view_model/toprated/top_rated_cubit.dart';
-//import 'package:movies/view_model/upcoming/upcoming_cubit.dart';
 
 import '../../view_model/nowPlaying/now_playing_cubit.dart';
 import '../../view_model/popular/popular_cubit.dart';
@@ -151,7 +140,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   padding: const EdgeInsets.symmetric(vertical: 15),
                                   child: TabBarView(
                                     children: [
-                                      ///////////////////////////////Now Playing////////////////////////////
+
                                       BlocBuilder<NowPlayingCubit, NowPlayingState>(
                                         builder: (context, state) {
                                           if (state is NowPlayingLoading){
@@ -183,7 +172,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                           }
                                         },
                                       ),
-                                      ///////////////////////////////Upcoming Movies////////////////////////////
                                       BlocBuilder<UpcomingCubit, UpcomingState>(
                                         builder: (context, state) {
                                           if (state is UpcomingMovieLoading) {
@@ -225,7 +213,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                           }
                                         },
                                       ),
-                                      ///////////////////////////////Top Rated////////////////////////////
                                       CustomGridviewBuilder(
                                         itemCount: topRatedMovie.length,
                                         itemBuilder: (context, i) {
@@ -244,7 +231,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           );
                                         },
                                       ),
-                                      ///////////////////////////////Popular////////////////////////////
+
                                       BlocBuilder<PopularCubit, PopularState>(
                                         builder: (context, state) {
                                           if (state is PopularMovieLoading){

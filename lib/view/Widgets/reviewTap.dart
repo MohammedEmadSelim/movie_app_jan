@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/appcolor.dart';
-//import 'package:movies/core/app_color.dart';
+
 
 class CustomCard extends StatelessWidget {
   const CustomCard({

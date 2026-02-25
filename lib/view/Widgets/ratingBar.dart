@@ -3,9 +3,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/appcolor.dart';
 import 'package:movie_app/view/Widgets/text.dart';
-//import 'package:movies/core/app_color.dart';
 
-//import 'text_details.dart';
+
 
 class BottomRatingBar extends StatefulWidget {
   const BottomRatingBar({super.key});

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/appcolor.dart';
-//import 'package:movies/core/app_color.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 
 class MovieNameTitle extends StatelessWidget {
   const MovieNameTitle({super.key,required this.movieName, required this.movieYear, required this.movieTime, required this.movieType});

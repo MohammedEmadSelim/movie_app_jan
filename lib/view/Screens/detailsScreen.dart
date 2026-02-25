@@ -1,19 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-//import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:movie_app/core/appcolor.dart';
 import 'package:movie_app/view/Screens/watchlist.dart';
-//import 'package:movies/core/app_color.dart';
-//import 'package:movies/view/screens/watchlist_data.dart';
-//import 'package:movies/view/widgets/Custom_app_bar.dart';
-//import 'package:movies/view/widgets/bottom_rating_bar.dart';
-//import 'package:movies/view/widgets/review_tab.dart';
-//import 'package:movies/view/widgets/custom_movie_details.dart';
-//import 'package:movies/view/widgets/text_details.dart';
-//import 'package:movies/view_model/cast/cast_cubit.dart';
-//import 'package:movies/view_model/details/details_cubit.dart';
-//import 'package:movies/view_model/reviews/reviews_cubit.dart';
+
 
 import '../../view_model/movieCast/cast_cubit.dart';
 import '../../view_model/movieDetails/details_cubit.dart';
@@ -85,13 +76,13 @@ class _DetailsScreenState extends State<DetailsScreen> {
               isWatch = !isWatch;
             });
           },
-          //=============================
+
           child: SvgPicture.asset(
             isWatch
                 ? "assets/icons/top-bar-right.svg"
                 : "assets/icons/Save.svg",
           ),
-          //==============================
+
         ),
       ),
       body: Column(
@@ -154,9 +145,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          //==================================================
+
                           SvgPicture.asset("assets/icons/Star.svg"),
-                          //==================================================
+
                           Padding(
                             padding: const EdgeInsets.only(left: 2.0, right: 4),
                             child: Text(
@@ -219,9 +210,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   Expanded(
                     child: TabBarView(
                       children: [
-                        /////////////////AboutMovie///////////////////////////
+
                         TextDetails(title: searchS.overview),
-                        ///////////////////////Reviews////////////////////////////
+
                         BlocBuilder<ReviewsCubit, ReviewsState>(
                           builder: (context, state) {
                             if (state is ReviewsMovieLoading) {
@@ -277,7 +268,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                             return TextDetails(title: "Oops");
                           },
                         ),
-                        ////////////////////////Cast////////////////////////
+
                         BlocBuilder<CastCubit, CastState>(
                           builder: (context, state) {
                             if (state is CastMovieLoading) {
@@ -288,7 +279,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                                 padding: const EdgeInsets.all(15),
                                 child: GridView.builder(
                                   shrinkWrap: true,
-                                  //physics: NeverScrollableScrollPhysics(),
+
                                   itemCount: castMovie.length,
                                   gridDelegate:
                                   SliverGridDelegateWithFixedCrossAxisCount(

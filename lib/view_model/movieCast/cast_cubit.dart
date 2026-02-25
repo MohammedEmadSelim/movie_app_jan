@@ -1,8 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:meta/meta.dart';
-//import 'package:movies/model/movieCast/castModel.dart';
-
 import '../../model/movieCast/castModel.dart';
 
 part 'cast_state.dart';

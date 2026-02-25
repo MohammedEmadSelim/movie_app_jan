@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-//import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:movie_app/core/appcolor.dart';
 import 'package:movie_app/view/Screens/watchlist.dart';
-//import 'package:movies/core/app_color.dart';
-//import 'package:movies/view/screens/details_screen.dart';
-//import 'package:movies/view/screens/watchlist_data.dart';
-//import 'package:movies/view/widgets/Custom_app_bar.dart';
+
 import '../Widgets/appBar.dart';
 import '../Widgets/searchDetails.dart';
-//import '../widgets/custom_search_details.dart';
 import 'detailsScreen.dart';
 
 class WatchScreen extends StatefulWidget {
