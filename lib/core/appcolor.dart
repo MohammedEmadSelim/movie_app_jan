@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 
 class AppColors {
 
-  static const Color background = Color(0xFF1E1E1E);
-  static const Color cardBackground = Color(0xFF2C2C2C);
-  static const Color textPrimary = Color(0xFFFFFFFF);
-  static const Color textSecondary = Color(0xFFB0B0B0);
-  static const Color textHighlight = Color(0xFFFFC107);
-  static const Color icon = Color(0xFFFFFFFF);
-  static const Color buttonPrimary = Color(0xFF6200EE);
-  static const Color emptyStateIcon = Color(0xFF2196F3);
-  static const Color error = Color(0xFFD32F2F);
+  static const textWhite = Color(0xffFFFFFF);
+  static const backGround = Color(0xff242A32);
+  static const textField =Color(0xff3A3F47);
+  static const iconHint = Color(0xff67686D);
+  static const detail = Color(0xff92929D);
+  static const appBarColor= Color(0xffECECEC);
+  static const yellowStar= Color(0xffFF8700);
+  static const contColor= Color(0x99283652);
+  static const blue= Color(0xff0296E5);
+  static const selectInd= Color(0xff3A3F47);
+  static const purple= Color(0xff4E4B66);
 }
