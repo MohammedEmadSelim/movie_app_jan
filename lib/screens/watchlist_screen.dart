@@ -20,7 +20,19 @@ class WatchlistScreen extends StatelessWidget {
       body: BlocBuilder<WatchlistCubit, List<MovieModel>>(
         builder: (context, movies) {
           if (movies.isEmpty) {
-            return const Center(child: Text("Your list is empty", style: TextStyle(color: Colors.white)));
+            return Center(
+
+                child: Column(
+                  children: [
+                    Image.asset("assets/images/img_1.png"),
+                    const Text("There Is No Movie Yet!",
+                        style: TextStyle(color: Colors.white , fontWeight: FontWeight.bold)),
+                    Text("Find your movie by Type title \n categories , years , etc",
+                    style: TextStyle(color: Colors.grey),
+                      textAlign: TextAlign.center,
+                    )
+                  ],
+                ));
           }
           return ListView.builder(
             padding: const EdgeInsets.all(20),

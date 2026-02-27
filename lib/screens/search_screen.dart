@@ -30,7 +30,13 @@ class SearchScreen extends StatelessWidget {
                       itemBuilder: (context, index) => MovieItem(movie: state.moviesList[index]),
                     );
                   }
-                  if (state is MoviesError) return Center(child: Text("Error", style: TextStyle(color: Colors.white)));
+                  if (state is MoviesError) return Center(child: Column(
+                    children: [
+                      Image.asset("assets/images/img.png"),
+                      Text("we are sorry, we can not find the movie :(", style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold)),
+                      Text("Find your movie by Type title, \n categories, years, etc ", style: TextStyle(color: Colors.grey)),
+                    ],
+                  ));
                   return Center(child: Text("Search for a movie", style: TextStyle(color: Colors.white)));
                 },
               ),
