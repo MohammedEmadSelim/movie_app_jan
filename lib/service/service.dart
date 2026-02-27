@@ -30,5 +30,20 @@ class Service {
 
     return results.map((e) => MovieModel.fromJson(e)).toList();
   }
+  Future<List<MovieModel>> searchMovies(String query) async {
+    final res = await dio.get(
+      ApiConstants.search,
+      queryParameters: {
+        'api_key': ApiKeys.token,
+        'query': query,
+      },
+    );
+    List results = res.data['results'];
+    return results.map((e) => MovieModel.fromJson(e)).toList();
+
+
+
+  }
+
 
 }

@@ -20,4 +20,14 @@ class MoviesCubit extends Cubit<MoviesState> {
     } catch (e) {
       emit(MoviesError());
     }
-  }}
+  }
+  Future<void> search(String query) async {
+    emit(MoviesLoading());
+    try {
+      List<MovieModel> results = await api.searchMovies(query);
+      emit(MoviesSuccess(moviesList: results));
+    } catch (e) {
+      emit(MoviesError());
+    }
+  }
+}
