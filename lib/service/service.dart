@@ -47,11 +47,10 @@ class Service {
   }
   Future<List<MovieModel>> getMovies(String type) async {
     final res = await dio.get(
-      ApiConstants.popular,
+      type,
       queryParameters: {'api_key': ApiKeys.token},
     );
     List results = res.data['results'];
-
     return results.map((e) => MovieModel.fromJson(e)).toList();
   }
   Future<List<CastModel>> getCast(int id) async {
