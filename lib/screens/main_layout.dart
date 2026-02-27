@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies/screens/search_screen.dart';
+import 'package:movies/screens/watchlist_screen.dart';
 
 import 'home_screen.dart';
 class MainLayout extends StatefulWidget {
@@ -15,7 +16,7 @@ class _MainLayoutState extends State<MainLayout> {
   final List<Widget> screens = [
     const HomeScreen(),
      SearchScreen(),
-    const Center(child: Text("Watchlist", style: TextStyle(color: Colors.white))),
+    WatchlistScreen(),
   ];
 
   @override

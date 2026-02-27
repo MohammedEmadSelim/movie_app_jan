@@ -5,14 +5,23 @@ import '../service/service.dart';
 
 
 import 'cubit/movies_cubit.dart';
+import 'cubit/watchlistcubit_cubit.dart';
 
 void main() {
-  runApp(BlocProvider(
-    create: (context) => MoviesCubit(Service())..getPopular(),
-    child: MyApp(),
-  ));
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => MoviesCubit(Service())..getPopular(),
+        ),
+        BlocProvider(
+          create: (context) => WatchlistCubit(),
+        ),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 

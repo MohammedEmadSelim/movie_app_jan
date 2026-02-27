@@ -1,6 +1,6 @@
 import 'dart:async';
-
-import 'package:flutter/material.dart';
+import '../widgets/search_bar.dart';
+import 'package:flutter/material.dart' hide SearchBar;
 import '../cubit/movies_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,8 +19,7 @@ class SearchScreen extends StatelessWidget {
         child: Column(
           children: [
 
-        SearchBar()
-  ,
+        SearchBar(),
             Expanded(
               child: BlocBuilder<MoviesCubit, MoviesState>(
                 builder: (context, state) {
