@@ -1,11 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart' as cs;
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide SearchBar;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/service/api_constants.dart';
 import '../cubit/movies_cubit.dart';
-import 'package:movies/models/movie_model.dart';
-
 import '../widgets/movie_grid.dart';
+import '../widgets/search_bar.dart';
 
 class HomeScreen extends StatefulWidget {
    const HomeScreen({super.key});

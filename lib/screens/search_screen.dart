@@ -19,29 +19,8 @@ class SearchScreen extends StatelessWidget {
         child: Column(
           children: [
 
-        TextField(
-        onChanged: (text) {
-      if (timer?.isActive ?? false) timer?.cancel();
-      timer = Timer(const Duration(milliseconds: 500), () {
-      if (text.isNotEmpty) {
-      context.read<MoviesCubit>().search(text);
-      }
-      });
-      },
-        style: const TextStyle(color: Colors.white),
-        decoration: InputDecoration(
-          filled: true,
-          fillColor: const Color(0xFF242C3B),
-          hintText: "Spiderman",
-          hintStyle: const TextStyle(color: Colors.grey),
-          prefixIcon: const Icon(Icons.search, color: Colors.grey),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
-            borderSide: BorderSide.none,
-          ),
-          contentPadding: const EdgeInsets.symmetric(vertical: 15),
-        ),
-      )  ,
+        SearchBar()
+  ,
             Expanded(
               child: BlocBuilder<MoviesCubit, MoviesState>(
                 builder: (context, state) {
