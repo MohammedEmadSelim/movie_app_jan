@@ -5,6 +5,8 @@ import 'package:movies/service/api_constants.dart';
 import '../cubit/movies_cubit.dart';
 import 'package:movies/models/movie_model.dart';
 
+import '../widgets/movie_grid.dart';
+
 class HomeScreen extends StatefulWidget {
    const HomeScreen({super.key});
 
@@ -28,61 +30,72 @@ class _HomeScreenState extends State<HomeScreen> {
       child: SafeArea(
         child:  Scaffold(
           backgroundColor: Colors.grey.shade900,
-          body:Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text("What do you want to watch?",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),),
-                SizedBox(height: 20,),
-                SearchBar(),
-                SizedBox(height: 20,),
-                BlocBuilder<MoviesCubit, MoviesState>(
-                  builder: (context, state) {
-                    if (state is MoviesLoading) {
-                      return CircularProgressIndicator();
-                    }
-                    if (state is MoviesSuccess) {
-                      return cs.CarouselSlider(
-                        items: state.moviesList.map((movie) {
-                          return ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: Image.network(
-                              "${ApiConstants.imageBaseUrl}${movie.image}",
-                              fit: BoxFit.cover,
-                              width: double.infinity,
-                            ),
-                          );
-                        }).toList(),
-                        options: cs.CarouselOptions(
-                          height: screenHeight * 0.3,
-                          autoPlay: true,
-                          enlargeCenterPage: true,
-                          autoPlayInterval: const Duration(seconds: 3),
-                        ),
-                      );
-                    }
-                    return const Text("Error", style: TextStyle(color: Colors.white));
-                  },
-                ),
-                SizedBox(height: 20,),
-                TabBar(
-                  indicatorWeight: 4.0,
-                  indicatorSize: TabBarIndicatorSize.label,
-                  tabs: [
-                    Tab(text: "Now playing"),
-                    Tab(text: "Upcoming"),
-                    Tab(text: "Top rated"),
-                    Tab(text: "Popular"),
-                  ],
-                )
+          body:SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text("What do you want to watch?",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),),
+                  SizedBox(height: 20,),
+                  SearchBar(),
+                  SizedBox(height: 20,),
+                  BlocBuilder<MoviesCubit, MoviesState>(
+                    builder: (context, state) {
+                      if (state is MoviesLoading) {
+                        return CircularProgressIndicator();
+                      }
+                      if (state is MoviesSuccess) {
+                        return cs.CarouselSlider(
+                          items: state.moviesList.map((movie) {
+                            return ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.network(
+                                "${ApiConstants.imageBaseUrl}${movie.image}",
+                                fit: BoxFit.cover,
+                                width: double.infinity,
+                              ),
+                            );
+                          }).toList(),
+                          options: cs.CarouselOptions(
+                            height: screenHeight * 0.3,
+                            autoPlay: true,
+                            enlargeCenterPage: true,
+                            autoPlayInterval: const Duration(seconds: 3),
+                          ),
+                        );
+                      }
+                      return const Text("Error", style: TextStyle(color: Colors.white));
+                    },
+                  ),
+                  SizedBox(height: 20,),
+                  TabBar(
+                    indicatorWeight: 4.0,
+                    indicatorSize: TabBarIndicatorSize.label,
+                    indicatorColor: Colors.white,
+                    labelColor: Colors.white,
+                    unselectedLabelColor: Colors.grey,
+                    dividerColor: Colors.transparent,
 
-              ]
+                    tabs: [
+                      Tab(text: "Now playing"),
+                      Tab(text: "Upcoming"),
+                      Tab(text: "Top rated"),
+                      Tab(text: "Popular"),
+                    ],
+                  ) ,
+                  SizedBox(height: 20,),
+                  MoviesGrid(),
+            
+            
+            
+                ]
+              ),
             ),
           )
         ),
