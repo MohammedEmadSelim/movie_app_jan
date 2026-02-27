@@ -30,4 +30,13 @@ class MoviesCubit extends Cubit<MoviesState> {
       emit(MoviesError());
     }
   }
+  Future<void> getMoviesByType(String type) async {
+    emit(MoviesLoading());
+    try {
+      final results = await api.getMovies(type); // ميثود عامة في الـ Service
+      emit(MoviesSuccess(moviesList: results));
+    } catch (e) {
+      emit(MoviesError());
+    }
+  }
 }

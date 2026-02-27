@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
 import '../service/api_constants.dart';
 import '../cubit/movies_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,18 +26,11 @@ class MoviesGrid extends StatelessWidget {
               mainAxisSpacing: 10,
             ),
             itemCount: state.moviesList.length,
-            itemBuilder: (context, index) {
-              final movie = state.moviesList[index];
-              return ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Image.network(
-                  "${ApiConstants.imageBaseUrl}${movie.image}",
-                  fit: BoxFit.cover,
-                  errorBuilder: (context, error, stackTrace) =>
-                  const Icon(Icons.error, color: Colors.white),
-                ),
-              );
-            },
+              itemBuilder: (context, index) => Shimmer.fromColors(
+                baseColor: Colors.grey[800]!,
+                highlightColor: Colors.grey[700]!,
+                child: Container(margin: EdgeInsets.all(5), color: Colors.white),
+              ),
           );
         }
 

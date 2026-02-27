@@ -74,6 +74,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   SizedBox(height: 20,),
                   TabBar(
+                    onTap: (index) {
+                      if (index == 0) context.read<MoviesCubit>().getMoviesByType(ApiConstants.nowPlaying);
+                      if (index == 1) context.read<MoviesCubit>().getMoviesByType(ApiConstants.upcoming);
+                      if (index == 2) context.read<MoviesCubit>().getMoviesByType(ApiConstants.topRated);
+                      if (index == 3) context.read<MoviesCubit>().getMoviesByType(ApiConstants.popular);
+                    },
                     indicatorWeight: 4.0,
                     indicatorSize: TabBarIndicatorSize.label,
                     indicatorColor: Colors.white,

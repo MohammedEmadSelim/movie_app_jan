@@ -7,6 +7,8 @@ class ApiConstants {
   static const String nowPlaying = "movie/now_playing";
   static const String discover = "discover/movie";
   static const String search = "search/movie";
+  static const String movie = "movie";
+
 
   static String movieDetails(int id) => "movie/$id";
   static String movieReviews(int id) => "movie/$id/reviews";
