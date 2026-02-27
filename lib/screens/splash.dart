@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'home_screen.dart';
 import '/widgets/splash_logo_card.dart';
+import 'main_layout.dart';
  class Splash extends StatefulWidget {
    const Splash({super.key});
  
@@ -31,7 +32,7 @@ import '/widgets/splash_logo_card.dart';
     Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (_) =>  HomeScreen()),
+        MaterialPageRoute(builder: (_) =>  MainLayout()),
       );
     });
     }
